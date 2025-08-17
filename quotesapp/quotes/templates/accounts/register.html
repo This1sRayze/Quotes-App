@@ -1,0 +1,16 @@
+{% extends 'quotes/base.html' %}
+{% load static %}
+{% block content %}
+<div class="auth-wrap">
+  <div class="auth-card">
+    <h2>Sign up</h2>
+    <p class="auth-sub">Create an account to save favorites and submit quotes.</p>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn" type="submit">Sign Up</button>
+    </form>
+    <a class="alt-link" href="{% url 'login' %}">Already have an account? Login</a>
+  </div>
+</div>
+{% endblock %}

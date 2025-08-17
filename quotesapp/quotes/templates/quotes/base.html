@@ -17,12 +17,17 @@
                     <a href="/" style="text-decoration: none">Quotes to Scrape</a>
                 </h1>
             </div>
-            <div class="col-md-4" bis_skin_checked="1">
+            <div class="col-md-4 text-end" bis_skin_checked="1">
                 <p>
-                    <a href="/signup" class="btn btn-primary">Sign Up</a>
-                    <a href="/login" class="btn btn-primary">Login</a>
-                    <a href="/logout" class="btn btn-primary">Logout</a>
-                
+                    {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-primary">Logout</button>
+                        </form>
+                    {% else %}
+                        <a href="{% url 'register' %}" class="btn btn-primary">Sign Up</a>
+                        <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+                    {% endif %}
                 </p>
             </div>
         </div>
