@@ -5,12 +5,15 @@ It allows users to explore, search, and organize quotes, while also supporting u
 
 ## Features
 
-- User authentication and management (signup, login, logout).
-- Manage quotes and authors.
+* User registration, login, and password reset
+* Create, edit, and delete quotes
 - Import quotes/authors from JSON files.
-- Custom template tags for extracting data.
+* Django ORM with SQLite (default)
+* Authentication system using Django's built-in auth
+* Custom template tags and utilities
 - Admin panel for managing users, quotes, and authors.
-- REST-like structure for scalability.
+* HTML templates & CSS styling
+* Ready for production deployment with Gunicorn + Nginx
 
 ## Project Structure
 ```
@@ -87,9 +90,24 @@ quotesapp/
 - Open the app in your browser: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)  
 - Django Admin: [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
 
+## Running Tests
+
+The project includes unit tests inside each app (e.g., `accounts/tests.py`, `quotes/tests.py`).
+
+Run tests with:
+
+```bash
+pytest
+```
+
+*(or `python manage.py test` if pytest isn’t configured)*
+
+
 ## Tech Stack
 
 - **Backend:** Django 4.x  
 - **Database:** SQLite (default), can be switched to PostgreSQL/MySQL  
 - **Frontend:** Django Templates  
 - **Data Import:** JSON utilities  
+
+
